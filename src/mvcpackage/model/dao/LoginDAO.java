@@ -16,7 +16,7 @@ public class LoginDAO {
         ResultSet rs = null;
         Class.forName("com.mysql.cj.jdbc.Driver");
         try {
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/LoginDB", "root", "mysql123");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/loginDB?serverTimezone=Australia/Sydney", "root", "mysql123");
 // Step 2:Create a statement using connection object
             ps = conn.prepareStatement("select * from UserTBL where uname = ? and upassword = ? ");
             ps.setString(1, loginBean.getUname());

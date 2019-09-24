@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import javax.servlet.http.HttpSession;
 
-@WebServlet(name = "LoginServlet")
+@WebServlet("/LoginServlet")
 public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -32,7 +32,8 @@ public class LoginServlet extends HttpServlet {
                 session.setAttribute("username", uname);
                 response.sendRedirect("success.jsp");
             } else {
-            //HttpSession session = request.getSession();
+                HttpSession session = request.getSession();
+                session.setAttribute("username", uname);
                 response.sendRedirect("error.jsp");
             }
         } catch (ClassNotFoundException e) {
